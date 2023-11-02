@@ -63,7 +63,7 @@
 
         </div>
         <!-- main content -->
-        <div class="col-12 col-md-8 reset-padding">
+        <div class="col-12 col-md-8 reset-padding d-flex flex-column">
           <!-- top -->
           <div class="d-flex justify-content-between align-content-center my-headers">
             <div class="">
@@ -84,7 +84,7 @@
 
           </div>
           <!-- messages content chat -->
-          <div class="content-chat">
+          <div class="content-chat flex-grow-1">
             <!-- bubble sent -->
             <div class="bubble-sent">
               <div class="sent">
@@ -103,14 +103,24 @@
                   Avevi detto che ci pensavi tu
                 </div>
                 <div class="msg-time">
-                  15:00
+                  15:45
                 </div>
               </div>
             </div>
 
 
           </div>
-          
+          <!-- bottom bar -->
+          <div class="bottom-bar d-flex align-items-center my-headers">
+            <div class="emoji px-2 text-secondary">
+              <i class="fa-regular fa-face-smile"></i>
+            </div>
+            <input type="text" class="form-control" id="input-msg" placeholder="Scrivi un messaggio">
+            <div class="audio-btn px-2 text-secondary">
+              <i class="fa-solid fa-microphone"></i>
+            </div>
+
+          </div>
             
           
 
