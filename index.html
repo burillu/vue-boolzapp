@@ -6,9 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Michele Ebau">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
     crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -23,45 +25,94 @@
     <div class="container h-100">
       <div class="row h-100">
 
-        <div class="col-12 col-md-4 bg-light top-bar h-100">
-          
-            <!-- div  user with avatar and name -->
-            <div class="d-flex justify-content-between align-content-center my-headers">
-              <div class="">
-                <!-- user left -->
-                <div class="avatar-container">
-                  <img src="img/avatar_1.jpg" :alt="user.name" class="rounded-5">
-                  <span>{{user.name}}</span>
+        <div class="col-12 col-md-4 bg-light reset-padding h-100">
+
+          <!-- div  user with avatar and name -->
+          <div class="d-flex justify-content-between align-content-center my-headers">
+            <div class="">
+              <!-- user left -->
+              <div class="avatar-container">
+                <img src="img/avatar_1.jpg" :alt="user.name" class="rounded-5">
+                <span>{{user.name}}</span>
+              </div>
+            </div>
+            <!-- user right -->
+            <div class="icons-container align-items-center d-flex gap-2 text-secondary">
+              <i class="fa-solid fa-circle-notch"></i>
+              <i class="fa-solid fa-message"></i>
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+
+            </div>
+
+
+          </div>
+          <div class="my-notification">
+            notifiche
+          </div>
+          <div class="search-container">
+            <input type="text" class="form-control" id="search" placeholder="ricerca">
+          </div>
+          <!-- contact-list -->
+          <div class="contact-list">
+            <div class="avatar-container border py-2" v-for="(item, index) in contacts" :id="item.id">
+              <img :src="item.avatar" :alt="item.name" class="rounded-5">
+              <span>{{item.name}}</span>
+            </div>
+
+          </div>
+
+        </div>
+        <!-- main content -->
+        <div class="col-12 col-md-8 reset-padding">
+          <!-- top -->
+          <div class="d-flex justify-content-between align-content-center my-headers">
+            <div class="">
+              <!-- user left -->
+              <div class="avatar-container">
+                <img src="img/avatar_1.jpg" :alt="user.name" class="rounded-5">
+                <span>{{user.name}}</span>
+              </div>
+            </div>
+            <!-- user right -->
+            <div class="icons-container align-items-center d-flex gap-2 text-secondary">
+              <i class="fa-solid fa-circle-notch"></i>
+              <i class="fa-solid fa-message"></i>
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+
+            </div>
+
+
+          </div>
+          <!-- messages content chat -->
+          <div class="content-chat">
+            <!-- bubble sent -->
+            <div class="bubble-sent">
+              <div class="sent">
+                <div class="msg-text">
+                  Hai portato il cane a spasso?
+                </div>
+                <div class="msg-time">
+                  15:00
                 </div>
               </div>
-              <!-- user right -->
-              <div class="icons-container align-items-center d-flex gap-2 text-secondary">
-                <i class="fa-solid fa-circle-notch"></i>
-                <i class="fa-solid fa-message"></i>
-                <i class="fa-solid fa-ellipsis-vertical"></i>
-
+            </div>
+            <!-- bubble received -->
+            <div class="bubble-received">
+              <div class="received">
+                <div class="msg-text">
+                  Avevi detto che ci pensavi tu
+                </div>
+                <div class="msg-time">
+                  15:00
+                </div>
               </div>
+            </div>
 
 
-            </div>
-            <div class="my-notification">
-              notifiche
-            </div>
-            <div class="search-container">
-              <input type="text" class="form-control" id="search" placeholder="ricerca">
-            </div>
-            <!-- contact-list -->
-            <div class="contact-list">
-              <div class="avatar-container border py-2" v-for="(item, index) in contacts" :id="item.id">
-                <img :src="item.avatar" :alt="item.name" class="rounded-5">
-                <span>{{item.name}}</span>
-              </div>
-              
-            </div>
+          </div>
           
-        </div>
-        <div class="col-12 col-md-8">
-          rigth
+            
+          
 
         </div>
       </div>
