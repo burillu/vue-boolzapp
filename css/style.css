@@ -10,6 +10,9 @@
     --my-sent-message: #d5f9ba;
     --my-notification: #8edafc;
 }
+body{
+    font-family: 'Lato', sans-serif;
+}
 
 
 #app {
@@ -21,9 +24,29 @@
 .avatar-container img{
     width: 40px;
 }
-.my-bg-headers{
+.my-headers{
+    background-color: var(--my-headers);
+    padding: 5px;
+}
+.top-bar{
+    padding-right:0;
+    padding-left: 0;
+}
+.contact-list{
+    height: 100%;
+    overflow-y: auto;
+}
+.search-container{
+    padding: 0 5px;
+}
+.sent{
+    background-color: var(--my-sent-message);
+}
+.received{
     background-color: var(--my-headers);
 }
+
+
 /* .avatar-container{
     
     
