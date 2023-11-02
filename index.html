@@ -24,8 +24,8 @@
   <div id="app">
     <div class="container h-100">
       <div class="row h-100">
-
-        <div class="col-12 col-md-4 bg-light reset-padding h-100">
+        <!-- sidebar -->
+        <div class="col-12 col-md-4 bg-light reset-padding d-flex flex-column">
 
           <!-- div  user with avatar and name -->
           <div class="d-flex justify-content-between align-content-center my-headers">
@@ -46,14 +46,16 @@
 
 
           </div>
+          <!-- notification -->
           <div class="my-notification">
             notifiche
           </div>
+          <!-- search bar -->
           <div class="search-container">
             <input type="text" class="form-control" id="search" placeholder="ricerca">
           </div>
           <!-- contact-list -->
-          <div class="contact-list">
+          <div class="contact-list flex-grow-1 h0">
             <div class="avatar-container border py-2" v-for="(item, index) in contacts" :id="item.id">
               <img :src="item.avatar" :alt="item.name" class="rounded-5">
               <span>{{item.name}}</span>
@@ -84,7 +86,7 @@
 
           </div>
           <!-- messages content chat -->
-          <div class="content-chat flex-grow-1">
+          <div class="content-chat flex-grow-1 h0">
             <!-- bubble sent -->
             <div class="bubble-sent">
               <div class="sent">

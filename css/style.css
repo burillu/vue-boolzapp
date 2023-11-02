@@ -82,6 +82,9 @@ body {
     display: flex;
     border-radius: 10px;
 }
+.h0{
+    height: 0;
+}
 
 
 /* .avatar-container{
