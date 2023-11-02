@@ -6,7 +6,12 @@ const { createApp } = Vue
     data() {
       return {
         message: 'Hello Vue!',
-        contacts: contactList
+        contacts: contactList,
+        user:{
+          id: 'user',
+        name: 'Michele',
+        avatar: 'img/avatar_1.jpg',
+        }
       }
     },
     methods:{
