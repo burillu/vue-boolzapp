@@ -63,6 +63,7 @@ body {
 .content-chat {
     background-image: url(../img/mine.jpg);
     padding: 50px 80px;
+    overflow-y: auto;
 }
 
 /* .bubble-sent {
