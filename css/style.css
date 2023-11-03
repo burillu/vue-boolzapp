@@ -99,6 +99,9 @@ body {
 .h0{
     height: 0;
 }
+.active{
+    background-color: var(--my-contact-active);
+}
 
 
 /* .avatar-container{

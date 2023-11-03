@@ -28,7 +28,7 @@
         <div class="col-12 col-md-4 bg-light reset-padding d-flex flex-column">
 
           <!-- div  user with avatar and name -->
-          <div class="d-flex justify-content-between align-content-center my-headers">
+          <div class="d-flex justify-content-between align-content-center my-headers border-end">
             <div class="">
               <!-- user left -->
               <div class="avatar-container">
@@ -77,7 +77,7 @@
           </div>
           <!-- contact-list -->
           <div class="contact-list flex-grow-1 h0">
-            <div class="avatar-container border py-2" v-for="(item, index) in contacts" :id="item.id">
+            <div class="avatar-container border-top py-2" :class="{'active': index===activeContactIndex} " v-for="(item, index) in contacts" :key="item.id" @click="activeContact(item.id)">
               <img :src="item.avatar" :alt="item.name" class="rounded-5">
               <span>{{item.name}}</span>
             </div>
