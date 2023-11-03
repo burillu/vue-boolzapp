@@ -15,7 +15,8 @@ createApp({
 
       },
       activeContactIndex: 0,
-      newMsgInput: ''
+      newMsgInput: '',
+      searchInput:''
     }
   },
   methods: {
@@ -39,6 +40,14 @@ createApp({
         message: str,
         status: status
       }
+    },
+    findContact(){
+      if(this.searchInput.length>0){
+        //console.log(this.searchInput);
+        const filteredArray= this.contacts.filter(el=>el.name.contain(this.searchInput));
+        return filteredArray
+      }
+      
     }
   },
   computed: {
@@ -47,8 +56,17 @@ createApp({
     },
     getActiveMsg() {
       return this.getActiveContact.messages;
+    },
+    filteredArray(){
+      if(this.searchInput.length>0){
+        //console.log(this.searchInput);
+        const filteredArray= this.contacts.filter(el=>el.name.toLowerCase().includes(this.searchInput.toLowerCase()));
+        return filteredArray
+    } else{
+      return this.contacts
     }
   }
+}
 }).mount('#app');
 
 

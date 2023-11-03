@@ -73,11 +73,11 @@
           <!-- search bar -->
           <div class="input-group search-container">
             <span class="input-group-text border-end-0 text-secondary" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
-            <input type="text" class="form-control border-start-0" id="search" placeholder="ricerca">
+            <input type="text" class="form-control border-start-0" id="search" placeholder="ricerca" v-model="searchInput">
           </div>
           <!-- contact-list -->
           <div class="contact-list flex-grow-1 h0">
-            <div class="avatar-container border-top py-2" :class="{'active': index===activeContactIndex} " v-for="(item, index) in contacts" :key="item.id" @click="setContactIndex(item.id)">
+            <div class="avatar-container border-top py-2" :class="{'active': index===activeContactIndex} " v-for="(item, index) in filteredArray" :key="item.id" @click="setContactIndex(item.id)">
               <img :src="item.avatar" :alt="item.name" class="rounded-5">
               <span>{{item.name}}</span>
             </div>
