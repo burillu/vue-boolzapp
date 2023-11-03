@@ -56,7 +56,8 @@ body {
 }
 
 .search-container {
-    padding: 0 5px;
+    padding: 5px;
+    color: var(--my-light-icons);
 }
 
 .content-chat {
