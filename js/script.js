@@ -18,13 +18,18 @@ const { createApp } = Vue
       }
     },
     methods:{
-      activeContact(ident){
+      setContactIndex(ident){
         const index= findElement(ident,this.contacts);
         this.activeContactIndex= index;
       }
     },
     computed:{
-
+      getActiveContact(){
+        return this.contacts[this.activeContactIndex]
+      },
+      getActiveMsg(){
+        return this.getActiveContact.messages;
+      }
     }
   }).mount('#app');
   

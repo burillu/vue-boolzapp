@@ -110,25 +110,25 @@
           <div class="content-chat flex-grow-1 h0 d-flex flex-column">
             <!-- message sent -->
             
-              <div class="sent">
+              <div :class="item.status" v-for="(item, index) in getActiveMsg">
                 <div class="msg-text">
-                  Hai portato il cane a spasso?
+                  {{item.message}}
                 </div>
                 <div class="msg-time">
-                  15:00
+                  {{item.date}}
                 </div>
               </div>
             
             <!-- message received -->
             
-              <div class="received">
+              <!-- <div class="received">
                 <div class="msg-text">
                   Avevi detto che ci pensavi tu
                 </div>
                 <div class="msg-time">
                   15:45
                 </div>
-              </div>
+              </div> -->
             
 
 
