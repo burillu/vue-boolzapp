@@ -98,7 +98,7 @@ body {
 }
 
 .received {
-    background-color: var(--my-headers);
+    background-color: white;
     display: flex;
     border-radius: 10px;
     margin: 10px auto 10px 0;
