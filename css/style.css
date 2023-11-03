@@ -56,6 +56,7 @@ body {
 }
 .contact-list>div:hover{
     background-color: var(--my-contact-active);
+    cursor: pointer;
 }
 
 .search-container {

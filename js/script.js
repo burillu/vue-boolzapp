@@ -11,7 +11,7 @@ createApp({
       user: {
         id: 'user',
         name: 'Michele',
-        avatar: 'img/avatar_1.jpg',
+        avatar: 'https://www.shutterstock.com/image-vector/young-man-avatar-character-260nw-661669825.jpg',
 
       },
       activeContactIndex: 0,
