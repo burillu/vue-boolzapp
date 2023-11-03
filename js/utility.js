@@ -46,3 +46,7 @@ function isEven (num){
   
   
 }
+//funzione per ottenere l'indice dell'oggetto contenuto in un array di oggetti
+export function findElement(ident, array){
+  return array.findIndex(el=> el.id === ident);
+}
