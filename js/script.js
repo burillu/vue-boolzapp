@@ -60,8 +60,8 @@ createApp({
     filteredArray(){
       if(this.searchInput.length>0){
         //console.log(this.searchInput);
-        const filteredArray= this.contacts.filter(el=>el.name.toLowerCase().includes(this.searchInput.toLowerCase()));
-        return filteredArray
+        return this.contacts.filter(el=>el.name.toLowerCase().includes(this.searchInput.toLowerCase()));
+        
     } else{
       return this.contacts
     }
