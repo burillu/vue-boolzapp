@@ -65,7 +65,7 @@ body {
     padding: 50px 80px;
 }
 
-.bubble-sent {
+/* .bubble-sent {
     display: flex;
     justify-content: end;
 }
@@ -73,7 +73,7 @@ body {
 .bubble-received {
     display: flex;
     padding: 20px 0;
-}
+} */
 
 .msg-text {
     padding: 10px;
@@ -88,6 +88,7 @@ body {
     background-color: var(--my-sent-message);
     border-radius: 10px;
     display: flex;
+    margin-left: auto;
 
 }
 
@@ -95,6 +96,7 @@ body {
     background-color: var(--my-headers);
     display: flex;
     border-radius: 10px;
+    margin-right: auto;
 }
 .h0{
     height: 0;
