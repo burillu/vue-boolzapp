@@ -35,6 +35,9 @@ createApp({
       if (this.newMsgInput) {
         
         this.getActiveMsg.push(this.msgBuilder(this.newMsgInput, 'sent'));
+        this.$nextTick(()=>{
+          this.$refs.msg[this.$refs.msg.length - 1].scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+        })
 
         setTimeout(this.autoAnswer, 1000)
       }
@@ -45,7 +48,11 @@ createApp({
     },
     autoAnswer() {
       const answer= answers[getRndInteger(0,9)]
-      this.getActiveMsg.push(this.msgBuilder(answer, 'received'))
+      this.getActiveMsg.push(this.msgBuilder(answer, 'received'));
+      this.$nextTick(()=>{
+        this.$refs.msg[this.$refs.msg.length - 1].scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+      })
+      
     },
     msgBuilder(str, status) {
       return {
@@ -110,8 +117,13 @@ createApp({
     showSendBtn(){
       if (this.newMsgInput) {
         this.sendBtn=true;
+      }else{
+        this.searchInput=false
       }
     }
+
+  },
+  mounted(){
 
   }
 }).mount('#app');

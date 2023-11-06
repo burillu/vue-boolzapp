@@ -124,7 +124,7 @@
           <div class="content-chat flex-grow-1 h0 d-flex flex-column">
             <!-- message sent -->
 
-            <div :class="item.status" v-for="(item, index) in getActiveMsg" class="d-flex flex-column">
+            <div :class="item.status" v-for="(item, index) in getActiveMsg" class="d-flex flex-column" ref="msg">
               <div v-if="getActiveMsg.length>0" class="msg-text d-flex">
                 <span>{{item.message}}</span>
                 <div>
