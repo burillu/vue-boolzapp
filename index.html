@@ -87,7 +87,7 @@
 
                 <strong>{{item.name}}</strong>
                 <small class="my-text-grey">{{item.messages[item.messages.length -1].message.slice(0,35).concat('...')}}</small>
-                <small class="my-text-grey">{{item.messages[item.messages.length -1].date}}</small>
+                <small class="my-text-grey">{{item.messages[item.messages.length -1].date.slice(0,-3)}}</small>
 
               </div>
               </div>
@@ -98,7 +98,7 @@
           </div>
 
         </div>
-        <!-- main content -->
+        <!-- main content chat-->
         <div class="col-12 col-md-8 reset-padding d-flex flex-column">
           <!-- top -->
           <div class="d-flex justify-content-between align-content-center my-headers">
@@ -139,7 +139,7 @@
                 </div>
               </div>
               <div class="msg-time">
-                {{item.date}}
+                {{item.date.slice(-8,-3)}}
               </div>
             </div>
 
