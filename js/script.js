@@ -18,10 +18,11 @@ createApp({
 
       },
       activeContactIndex: 0,
-      newMsgInput:null,
-      searchInput:'',
-      msgIndex:null,
-      arrowIndex:null
+      newMsgInput: null,
+      searchInput: '',
+      msgIndex: null,
+      arrowIndex: null,
+      sendBtn:false
     }
   },
   methods: {
@@ -31,12 +32,14 @@ createApp({
     },
     newMessage() {
       if (this.newMsgInput) {
+        
         this.getActiveMsg.push(this.msgBuilder(this.newMsgInput, 'sent'));
-      
-      setTimeout(this.autoAnswer, 1000)
-      }    
-      this.newMsgInput = null;  
-      
+
+        setTimeout(this.autoAnswer, 1000)
+      }
+      this.newMsgInput = null;
+      this.sendBtn=null;
+
 
     },
     autoAnswer() {
@@ -49,38 +52,38 @@ createApp({
         status: status
       }
     },
-    findContact(){
-      if(this.searchInput.length>0){
+    findContact() {
+      if (this.searchInput.length > 0) {
         //console.log(this.searchInput);
-        const filteredArray= this.contacts.filter(el=>el.name.contain(this.searchInput));
+        const filteredArray = this.contacts.filter(el => el.name.contain(this.searchInput));
         return filteredArray
       }
-      
+
     },
-    deleteMsg(i){
-      if (this.getActiveMsg.length>0) {
-        this.getActiveMsg.splice(i,1);
-      this.msgIndex=null;
+    deleteMsg(i) {
+      if (this.getActiveMsg.length > 0) {
+        this.getActiveMsg.splice(i, 1);
+        this.msgIndex = null;
       } else {
         this.getActiveMsg.push('Non sono presenti messaggi')
         console.log(this.getActiveMsg);
       }
-      
+
     },
-    msgToggleDown(index){
+    msgToggleDown(index) {
       if (this.msgIndex !== index) {
-        this.msgIndex=index;
+        this.msgIndex = index;
       } else {
-        this.msgIndex=null;
+        this.msgIndex = null;
       }
-      
-      
+
+
     },
-    showArrow(index){
-      this.arrowIndex=index;
+    showArrow(index) {
+      this.arrowIndex = index;
     },
-    hideArrow(){
-      this.arrowIndex=null
+    hideArrow() {
+      this.arrowIndex = null
     }
   },
   computed: {
@@ -88,21 +91,27 @@ createApp({
       return this.contacts[this.activeContactIndex]
     },
     getActiveMsg() {
-      if (this.getActiveContact.messages.length>0) {
-        this.msgIndex=null;
+      if (this.getActiveContact.messages.length > 0) {
+        this.msgIndex = null;
         return this.getActiveContact.messages;
-      }     
+      }
     },
-    filteredArray(){
-      if(this.searchInput.length>0){
+    filteredArray() {
+      if (this.searchInput.length > 0) {
         //console.log(this.searchInput);
-        return this.contacts.filter(el=>el.name.toLowerCase().includes(this.searchInput.toLowerCase()));
-        
-    } else{
-      return this.contacts
+        return this.contacts.filter(el => el.name.toLowerCase().includes(this.searchInput.toLowerCase()));
+
+      } else {
+        return this.contacts
+      }
+    },
+    showSendBtn(){
+      if (this.newMsgInput) {
+        this.sendBtn=true;
+      }
     }
+
   }
-}
 }).mount('#app');
 
 

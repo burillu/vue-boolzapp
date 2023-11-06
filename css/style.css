@@ -126,6 +126,12 @@ ul.dropdown-menu{
 .my-text-grey{
     color: var(--my-text-grey);
 }
+.send-btn{
+    cursor: pointer;
+}
+.send-btn i:hover{
+    color: blue;
+}
 /* .avatar-container{
     
     
