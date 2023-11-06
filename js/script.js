@@ -120,7 +120,7 @@ createApp({
       if (this.newMsgInput) {
         this.sendBtn=true;
       }else{
-        this.searchInput=false
+        this.sendBtn=false;
       }
     }
 
