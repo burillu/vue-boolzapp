@@ -84,9 +84,7 @@ body {
 .msg-text {
     padding: 10px 10px 0;
 }
-.my-text-grey{
-    color: var(--my-text-grey);
-}
+
 
 .msg-time {
     margin-left: auto;
@@ -122,7 +120,12 @@ ul.dropdown-menu{
 
 
 }
-
+.fa-angle-down{
+    color: transparent;
+}
+.my-text-grey{
+    color: var(--my-text-grey);
+}
 /* .avatar-container{
     
     

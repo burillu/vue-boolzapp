@@ -1,5 +1,6 @@
 import { contactList } from './data.js';
 import { findElement } from './utility.js';
+//aggiungere libreria per le date
 
 const { createApp } = Vue
 
@@ -17,7 +18,8 @@ createApp({
       activeContactIndex: 0,
       newMsgInput: '',
       searchInput:'',
-      msgIndex:null
+      msgIndex:null,
+      arrowIndex:null
     }
   },
   methods: {
@@ -62,6 +64,12 @@ createApp({
       }
       
       
+    },
+    showArrow(index){
+      this.arrowIndex=index;
+    },
+    hideArrow(){
+      this.arrowIndex=null
     }
   },
   computed: {
@@ -69,8 +77,14 @@ createApp({
       return this.contacts[this.activeContactIndex]
     },
     getActiveMsg() {
-      this.msgIndex=null;
-      return this.getActiveContact.messages;
+      if (this.getActiveContact.messages.length>0) {
+        this.msgIndex=null;
+        return this.getActiveContact.messages;
+      } else {
+        return this.getActiveContact.messages[0].message ="Non sono presenti messaggi"
+      }
+      
+      
     },
     filteredArray(){
       if(this.searchInput.length>0){
