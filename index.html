@@ -114,9 +114,13 @@
           <div class="d-flex justify-content-between align-content-center my-headers">
             <div class="">
               <!-- user left -->
-              <div class="avatar-container">
+              <div class="avatar-container d-flex">
                 <img :src="getActiveContact.avatar" :alt="getActiveContact.name" class="rounded-5">
-                <span>{{getActiveContact.name}}</span>
+                <div>
+                  <strong>{{getActiveContact.name}}</strong><br>
+                  <small class="my-text-grey">{{writing}} </small>
+                </div>
+
               </div>
             </div>
             <!-- user right -->
@@ -133,38 +137,38 @@
           <!-- messages content chat -->
           <div class="content-chat flex-grow-1 h0 d-flex flex-column">
             <!-- message sent -->
-            
 
-              <div :class="item.status" v-for="(item, index) in getActiveMsg" class="d-flex flex-column" ref="msg">
-                <div class="msg-text d-flex">
-                  <span>{{item.message}}</span>
 
-                  <div class="dropdown d-flex flex-column">
-                    <button class="btn  p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false"
-                      @click="msgToggleDown(index)">
-                      <i class="fa-solid fa-angle-down ps-3" :class="{'my-text-grey': arrowIndex===index}"
-                        @mouseover="showArrow(index)" @mouseleave="hideArrow"></i>
-                    </button>
-                    <ul class="dropdown-menu" :class="{'show':msgIndex===index}">
-                      <li><a class="dropdown-item" href="#">Message info</a></li>
-                      <li><a class="dropdown-item" href="#" @click.prevent="deleteMsg(index)">Delete message</a></li>
+            <div :class="item.status" v-for="(item, index) in getActiveMsg" class="d-flex flex-column" ref="msg">
+              <div class="msg-text d-flex">
+                <span>{{item.message}}</span>
 
-                    </ul>
-                    <div class="msg-time my-text-grey">
+                <div class="dropdown d-flex flex-column">
+                  <button class="btn  p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                    @click="msgToggleDown(index)">
+                    <i class="fa-solid fa-angle-down ps-3" :class="{'my-text-grey': arrowIndex===index}"
+                      @mouseover="showArrow(index)" @mouseleave="hideArrow"></i>
+                  </button>
+                  <ul class="dropdown-menu" :class="{'show':msgIndex===index}">
+                    <li><a class="dropdown-item" href="#">Message info</a></li>
+                    <li><a class="dropdown-item" href="#" @click.prevent="deleteMsg(index)">Delete message</a></li>
+
+                  </ul>
+                  <div class="msg-time my-text-grey">
                     {{item.date.slice(-8,-3)}}
                   </div>
-                  </div>
-                  
-
-
-
                 </div>
+
+
 
 
               </div>
 
-            
-            
+
+            </div>
+
+
+
 
             <!-- message received -->
 

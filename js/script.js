@@ -23,38 +23,41 @@ createApp({
       searchInput: '',
       msgIndex: null,
       arrowIndex: null,
-      sendBtn:false,
-      showChat:false
+      sendBtn: false,
+      showChat: false,
+      writing:''
     }
   },
   methods: {
     setContactIndex(ident) {
       const index = findElement(ident, this.contacts);
       this.activeContactIndex = index;
-      this.showChat=true;
+      this.showChat = true;
     },
     newMessage() {
       if (this.newMsgInput) {
-        
+
         this.getActiveMsg.push(this.msgBuilder(this.newMsgInput, 'sent'));
-        this.$nextTick(()=>{
+        this.$nextTick(() => {
           this.$refs.msg[this.$refs.msg.length - 1].scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
         })
 
         setTimeout(this.autoAnswer, 1000)
       }
+      this.writing='sta scrivendo...'
       this.newMsgInput = null;
-      this.sendBtn=null;
+      this.sendBtn = null;
 
 
     },
     autoAnswer() {
-      const answer= answers[getRndInteger(0,9)]
+      const answer = answers[getRndInteger(0, 9)];
+      this.writing="";
       this.getActiveMsg.push(this.msgBuilder(answer, 'received'));
-      this.$nextTick(()=>{
+      this.$nextTick(() => {
         this.$refs.msg[this.$refs.msg.length - 1].scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
       })
-      
+
     },
     msgBuilder(str, status) {
       return {
@@ -72,13 +75,10 @@ createApp({
 
     },
     deleteMsg(i) {
-      if (this.getActiveMsg.length > 0) {
-        this.getActiveMsg.splice(i, 1);
-        this.msgIndex = null;
-      } else {
-        this.getActiveMsg.push('Non sono presenti messaggi')
-        console.log(this.getActiveMsg);
-      }
+
+      this.getActiveMsg.splice(i, 1);
+      this.msgIndex = null;
+
 
     },
     msgToggleDown(index) {
@@ -116,16 +116,16 @@ createApp({
         return this.contacts
       }
     },
-    showSendBtn(){
+    showSendBtn() {
       if (this.newMsgInput) {
-        this.sendBtn=true;
-      }else{
-        this.sendBtn=false;
+        this.sendBtn = true;
+      } else {
+        this.sendBtn = false;
       }
     }
 
   },
-  mounted(){
+  mounted() {
 
   }
 }).mount('#app');
