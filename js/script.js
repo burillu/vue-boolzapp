@@ -1,6 +1,7 @@
 import { contactList } from './data.js';
 import { findElement } from './utility.js';
 //aggiungere libreria per le date
+const dt = luxon.DateTime;
 
 const { createApp } = Vue
 
@@ -39,7 +40,7 @@ createApp({
     },
     msgBuilder(str, status) {
       return {
-        date: '02/11/2023 15:30:55',
+        date: dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS),
         message: str,
         status: status
       }
@@ -53,11 +54,17 @@ createApp({
       
     },
     deleteMsg(i){
-      this.getActiveMsg.splice(i,1);
+      if (this.getActiveMsg.length>0) {
+        this.getActiveMsg.splice(i,1);
       this.msgIndex=null;
+      } else {
+        this.getActiveMsg.push('Non sono presenti messaggi')
+        console.log(this.getActiveMsg);
+      }
+      
     },
     msgToggleDown(index){
-      if (this.message !== index) {
+      if (this.msgIndex !== index) {
         this.msgIndex=index;
       } else {
         this.msgIndex=null;
@@ -80,11 +87,7 @@ createApp({
       if (this.getActiveContact.messages.length>0) {
         this.msgIndex=null;
         return this.getActiveContact.messages;
-      } else {
-        return this.getActiveContact.messages[0].message ="Non sono presenti messaggi"
-      }
-      
-      
+      }     
     },
     filteredArray(){
       if(this.searchInput.length>0){

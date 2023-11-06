@@ -85,13 +85,14 @@
                 <img :src="item.avatar" :alt="item.name" class="rounded-5">
                 <div class="d-flex flex-column align-items">
 
-                <strong>{{item.name}}</strong>
-                <small class="my-text-grey">{{item.messages[item.messages.length -1].message.slice(0,35).concat('...')}}</small>
-                <small class="my-text-grey">{{item.messages[item.messages.length -1].date.slice(0,-3)}}</small>
+                  <strong>{{item.name}}</strong>
+                  <small class="my-text-grey">{{item.messages[item.messages.length
+                    -1].message.slice(0,35).concat('...')}}</small>
+                  <small class="my-text-grey">{{item.messages[item.messages.length -1].date.slice(0,-3)}}</small>
 
+                </div>
               </div>
-              </div>
-              
+
 
             </div>
 
@@ -124,23 +125,32 @@
             <!-- message sent -->
 
             <div :class="item.status" v-for="(item, index) in getActiveMsg" class="d-flex flex-column">
-              <div class="msg-text d-flex">
+              <div v-if="getActiveMsg.length>0" class="msg-text d-flex">
                 <span>{{item.message}}</span>
-                <div class="dropdown">
-                  <button class="btn ms-auto p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false"
-                    @click="msgToggleDown(index)">
-                    <i class="fa-solid fa-angle-down" :class="{'my-text-grey': arrowIndex===index}" @mouseover="showArrow(index)" @mouseleave="hideArrow"></i>
-                  </button>
-                  <ul class="dropdown-menu" :class="{'show':msgIndex===index}">
-                    <li><a class="dropdown-item" href="#">Message info</a></li>
-                    <li><a class="dropdown-item" href="#" @click="deleteMsg(index)">Delete message</a></li>
+                <div>
+                  <div class="dropdown">
+                    <button class="btn ms-auto p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                      @click="msgToggleDown(index)">
+                      <i class="fa-solid fa-angle-down" :class="{'my-text-grey': arrowIndex===index}"
+                        @mouseover="showArrow(index)" @mouseleave="hideArrow"></i>
+                    </button>
+                    <ul class="dropdown-menu" :class="{'show':msgIndex===index}">
+                      <li><a class="dropdown-item" href="#">Message info</a></li>
+                      <li><a class="dropdown-item" href="#" @click.prevent="deleteMsg(index)">Delete message</a></li>
 
-                  </ul>
+                    </ul>
+                  </div>
+                  <div class="msg-time my-text-grey">
+                    {{item.date.slice(-8,-3)}}
+                  </div>
                 </div>
+
+
               </div>
-              <div class="msg-time my-text-grey">
-                {{item.date.slice(-8,-3)}}
+              <div v-else>
+                <span>Non sono presenti messaggi </span>
               </div>
+
             </div>
 
             <!-- message received -->
@@ -163,7 +173,7 @@
               <i class="fa-regular fa-face-smile"></i>
             </div>
             <input type="text" class="form-control" id="input-msg" placeholder="Scrivi un messaggio"
-              v-model="newMsgInput" @keyup.enter="newMessage()">
+              v-model.trim="newMsgInput" @keyup.enter="newMessage()">
             <div class="audio-btn px-2 text-secondary">
               <i class="fa-solid fa-microphone"></i>
             </div>
@@ -176,7 +186,7 @@
       </div>
     </div>
   </div>
-
+  <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.3/build/global/luxon.min.js"></script>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <!-- <script src="js/utility.js"></script> -->
   <script src="js/script.js" type="module"></script>
