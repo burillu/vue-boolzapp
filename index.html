@@ -25,7 +25,8 @@
     <div class="container h-100">
       <div class="row h-100">
         <!-- sidebar -->
-        <div class="col-12 col-md-4 bg-light reset-padding d-flex flex-column" :class="{'d-none':showChat}">
+        <div class="col-12 col-md-4 bg-light reset-padding d-md-flex flex-column"
+          :class="{'d-none':showChat,'d-flex':!showChat}">
 
           <!-- div  user with avatar and name -->
           <div class="d-flex justify-content-between align-content-center my-headers border-end">
@@ -86,9 +87,16 @@
                 <div class="d-flex flex-column align-items">
 
                   <strong>{{item.name}}</strong>
-                  <small class="my-text-grey">{{item.messages[item.messages.length
-                    -1].message.slice(0,35).concat('...')}}</small>
-                  <small class="my-text-grey">{{item.messages[item.messages.length -1].date.slice(0,-3)}}</small>
+                  <div v-if="item.messages.length>0">
+                    <small class="my-text-grey">{{item.messages[item.messages.length
+                      -1].message.slice(0,35).concat('...')}}</small>
+                    <small class="my-text-grey">{{item.messages[item.messages.length -1].date.slice(0,-3)}}</small>
+
+                  </div>
+                  <div v-else>
+                    <small class="my-text-grey">Non sono presenti messaggi</small>
+                  </div>
+
 
                 </div>
               </div>
@@ -100,7 +108,8 @@
 
         </div>
         <!-- main content chat-->
-        <div class="col-12 col-md-8 reset-padding d-md-flex flex-column" :class="{'d-none':!showChat, 'd-flex':showChat}">
+        <div class="col-12 col-md-8 reset-padding d-md-flex flex-column"
+          :class="{'d-none':!showChat, 'd-flex':showChat}">
           <!-- top -->
           <div class="d-flex justify-content-between align-content-center my-headers">
             <div class="">
@@ -112,7 +121,7 @@
             </div>
             <!-- user right -->
             <div class="icons-container align-items-center d-flex gap-2 text-secondary px-3">
-              <i class="fa-solid fa-chevron-left" @click="showChat=!showChat"></i>
+              <i class="fa-solid fa-chevron-left d-md-none" @click="showChat=!showChat"></i>
               <i class="fa-solid fa-magnifying-glass"></i>
               <i class="fa-solid fa-paperclip"></i>
               <i class="fa-solid fa-ellipsis-vertical"></i>
@@ -124,12 +133,13 @@
           <!-- messages content chat -->
           <div class="content-chat flex-grow-1 h0 d-flex flex-column">
             <!-- message sent -->
+            
 
-            <div :class="item.status" v-for="(item, index) in getActiveMsg" class="d-flex flex-column" ref="msg">
-              <div v-if="getActiveMsg.length>0" class="msg-text d-flex">
-                <span>{{item.message}}</span>
-                <div>
-                  <div class="dropdown ">
+              <div :class="item.status" v-for="(item, index) in getActiveMsg" class="d-flex flex-column" ref="msg">
+                <div class="msg-text d-flex">
+                  <span>{{item.message}}</span>
+
+                  <div class="dropdown d-flex flex-column">
                     <button class="btn  p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false"
                       @click="msgToggleDown(index)">
                       <i class="fa-solid fa-angle-down ps-3" :class="{'my-text-grey': arrowIndex===index}"
@@ -140,19 +150,21 @@
                       <li><a class="dropdown-item" href="#" @click.prevent="deleteMsg(index)">Delete message</a></li>
 
                     </ul>
-                  </div>
-                  <div class="msg-time my-text-grey">
+                    <div class="msg-time my-text-grey">
                     {{item.date.slice(-8,-3)}}
                   </div>
+                  </div>
+                  
+
+
+
                 </div>
 
 
               </div>
-              <div v-else>
-                <span>Non sono presenti messaggi </span>
-              </div>
 
-            </div>
+            
+            
 
             <!-- message received -->
 
