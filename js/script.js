@@ -1,6 +1,7 @@
 import { contactList } from './data.js';
 import { findElement } from './utility.js';
 import { getRndInteger } from './utility.js';
+import { answers } from './data.js';
 //aggiungere libreria per le date
 const dt = luxon.DateTime;
 
@@ -43,7 +44,8 @@ createApp({
 
     },
     autoAnswer() {
-      this.getActiveMsg.push(this.msgBuilder('ok', 'received'))
+      const answer= answers[getRndInteger(0,9)]
+      this.getActiveMsg.push(this.msgBuilder(answer, 'received'))
     },
     msgBuilder(str, status) {
       return {

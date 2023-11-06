@@ -1,4 +1,4 @@
-export const contactList=[
+export const contactList = [
     {
         id: 1,
         name: 'Michele',
@@ -168,4 +168,19 @@ export const contactList=[
             }
         ],
     }
+];
+
+export const answers = [
+    'Scusa, adesso non posso rispondere',
+    'Sono impegnato',
+    'Strano, stavo pensando la stessa cosa di te',
+    'Beh, comunque sia, mi piaci',
+    'Ho sentito che c\'è una nuova app chiamata Sense of Humor. Scaricala',
+    'So che stai cercando di prendermi in giro, ma dovrai impegnarti di più',
+    'Ho sentito che è in vendita un nuovo libro intitolato "Minding Your Business". Dovresti comprarlo.',
+    'No',
+    'Sono a posto',
+    'Ok'
+
+
 ]
