@@ -126,7 +126,7 @@ ul.dropdown-menu{
 .my-text-grey{
     color: var(--my-text-grey);
 }
-.send-btn{
+.send-btn, .fa-chevron-left{
     cursor: pointer;
 }
 .send-btn i:hover{
