@@ -1,5 +1,6 @@
 import { contactList } from './data.js';
 import { findElement } from './utility.js';
+import { getRndInteger } from './utility.js';
 //aggiungere libreria per le date
 const dt = luxon.DateTime;
 
@@ -17,7 +18,7 @@ createApp({
 
       },
       activeContactIndex: 0,
-      newMsgInput: '',
+      newMsgInput:null,
       searchInput:'',
       msgIndex:null,
       arrowIndex:null
@@ -29,10 +30,13 @@ createApp({
       this.activeContactIndex = index;
     },
     newMessage() {
-
-      this.getActiveMsg.push(this.msgBuilder(this.newMsgInput, 'sent'));
-      this.newMsgInput = '';
+      if (this.newMsgInput) {
+        this.getActiveMsg.push(this.msgBuilder(this.newMsgInput, 'sent'));
+      
       setTimeout(this.autoAnswer, 1000)
+      }    
+      this.newMsgInput = null;  
+      
 
     },
     autoAnswer() {
