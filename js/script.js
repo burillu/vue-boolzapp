@@ -16,7 +16,8 @@ createApp({
       },
       activeContactIndex: 0,
       newMsgInput: '',
-      searchInput:''
+      searchInput:'',
+      msgIndex:null
     }
   },
   methods: {
@@ -48,7 +49,11 @@ createApp({
         return filteredArray
       }
       
-    }
+    },
+    // msgToggleDown(index){
+    //   this.msgIndex=index;
+    //   this.msgIndex=null;
+    // }
   },
   computed: {
     getActiveContact() {

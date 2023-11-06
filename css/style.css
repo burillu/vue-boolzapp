@@ -81,11 +81,11 @@ body {
 } */
 
 .msg-text {
-    padding: 10px;
+    padding: 10px 10px 0;
 }
 
 .msg-time {
-    margin-top: auto;
+    margin-left: auto;
     font-size: 0.7em;
 }
 
@@ -109,7 +109,15 @@ body {
 .active{
     background-color: var(--my-contact-active);
 }
+div.dropdown{
+    position: relative;
+}
+ul.dropdown-menu{
+    position: absolute;
+    left: -100px;
 
+
+}
 
 /* .avatar-container{
     
