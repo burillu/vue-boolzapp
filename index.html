@@ -117,12 +117,12 @@
               <div class="msg-text d-flex">
                 <span>{{item.message}}</span>
                 <div class="dropdown">
-                  <button class="btn ms-auto" type="button" data-bs-toggle="dropdown" aria-expanded="false" @click="msgIndex=index">
+                  <button class="btn ms-auto" type="button" data-bs-toggle="dropdown" aria-expanded="false" @click="msgToggleDown(index)">
                     <i class="fa-solid fa-angle-down"></i>
                   </button>
                   <ul class="dropdown-menu" :class="{'show':msgIndex===index}">
                     <li><a class="dropdown-item" href="#">Message info</a></li>
-                    <li><a class="dropdown-item" href="#">Delete message</a></li>
+                    <li><a class="dropdown-item" href="#" @click="deleteMsg(index)">Delete message</a></li>
                     
                   </ul>
                 </div>

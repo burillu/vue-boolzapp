@@ -50,16 +50,26 @@ createApp({
       }
       
     },
-    // msgToggleDown(index){
-    //   this.msgIndex=index;
-    //   this.msgIndex=null;
-    // }
+    deleteMsg(i){
+      this.getActiveMsg.splice(i,1);
+      this.msgIndex=null;
+    },
+    msgToggleDown(index){
+      if (this.message !== index) {
+        this.msgIndex=index;
+      } else {
+        this.msgIndex=null;
+      }
+      
+      
+    }
   },
   computed: {
     getActiveContact() {
       return this.contacts[this.activeContactIndex]
     },
     getActiveMsg() {
+      this.msgIndex=null;
       return this.getActiveContact.messages;
     },
     filteredArray(){
