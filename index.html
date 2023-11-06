@@ -25,7 +25,7 @@
     <div class="container h-100">
       <div class="row h-100">
         <!-- sidebar -->
-        <div class="col-12 col-md-4 bg-light reset-padding d-flex flex-column">
+        <div class="col-12 col-md-4 bg-light reset-padding d-flex flex-column" :class="{'d-none':showChat}">
 
           <!-- div  user with avatar and name -->
           <div class="d-flex justify-content-between align-content-center my-headers border-end">
@@ -100,7 +100,7 @@
 
         </div>
         <!-- main content chat-->
-        <div class="col-12 col-md-8 reset-padding d-flex flex-column">
+        <div class="col-12 col-md-8 reset-padding d-flex flex-column" :class="{'d-none':!showChat}">
           <!-- top -->
           <div class="d-flex justify-content-between align-content-center my-headers">
             <div class="">
@@ -124,7 +124,7 @@
           <div class="content-chat flex-grow-1 h0 d-flex flex-column">
             <!-- message sent -->
 
-            <div :class="item.status" v-for="(item, index) in getActiveMsg" class="d-flex flex-column" ref="msg">
+            <div :class="item.status" v-for="(item, index) in getActiveMsg" class="d-flex flex-column" ref="m">
               <div v-if="getActiveMsg.length>0" class="msg-text d-flex">
                 <span>{{item.message}}</span>
                 <div>

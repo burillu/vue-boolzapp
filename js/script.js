@@ -23,13 +23,15 @@ createApp({
       searchInput: '',
       msgIndex: null,
       arrowIndex: null,
-      sendBtn:false
+      sendBtn:false,
+      showChat:false
     }
   },
   methods: {
     setContactIndex(ident) {
       const index = findElement(ident, this.contacts);
       this.activeContactIndex = index;
+      this.showChat=true;
     },
     newMessage() {
       if (this.newMsgInput) {
